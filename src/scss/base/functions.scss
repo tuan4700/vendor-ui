@@ -1,0 +1,10 @@
+@function rem($size: 16) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}
+
+@mixin fontBase($fontsize: 28, $color: $black) {
+  font-size: rem($fontsize);
+  line-height: rem($fontsize * 1.5);
+  color: $color;
+}

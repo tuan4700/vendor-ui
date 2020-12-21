@@ -1,0 +1,74 @@
+.drawer {
+  width: rem(300);
+  height: 100%;
+
+  &_brand {
+    background-color: $lightCarminePink;
+    color: $black;
+    height: rem(90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include fontBase(48);
+    font-weight: bold;
+  }
+  &_accordion {
+    $accordion: &;
+    background-color: $onyx;
+    height: calc(100% - 90px);
+
+    &-item {
+      &.active {
+        #{$accordion}-title {
+          &::after {
+            transform: translateY(rem(-5)) rotate(45deg);
+          }
+        }
+
+        #{$accordion}-childWrapper {
+          opacity: 1;
+          visibility: visible;
+          max-height: rem(198);
+          border-left: rem(1) solid $lightCarminePink;
+        }
+      }
+    }
+
+    &-title {
+      color: $snow;
+      font-size: rem(32);
+      cursor: pointer;
+      transition: $normal-transition;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: rem(20);
+        top: 50%;
+        content: "";
+        width: rem(10);
+        height: rem(10);
+        border-right: rem(2) solid $white;
+        border-bottom: rem(2) solid $white;
+        transform: translateY(-50%) rotate(-45deg);
+        transition: $fast-transition;
+      }
+    }
+    &-childWrapper {
+      max-height: 0;
+      visibility: hidden;
+      opacity: 0;
+      transition: $normal-transition;
+      overflow: hidden;
+      border: rem(1) solid transparent;
+    }
+
+    &-navigate {
+      font-size: rem(24);
+      height: rem(48);
+      display: flex;
+      align-items: center;
+      color: $darkGray;
+    }
+  }
+}

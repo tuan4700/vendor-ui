@@ -1,0 +1,25 @@
+.input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_label {
+    @include fontBase(24);
+    flex-shrink: 1;
+
+    &.required {
+      &::after {
+        content: "*";
+        color: $red;
+      }
+    }
+  }
+
+  &_input {
+    flex-shrink: 3;
+    border: rem(1) solid $battleshipGrey;
+    outline: none;
+    font-size: rem(24);
+    padding: rem(8);
+  }
+}
