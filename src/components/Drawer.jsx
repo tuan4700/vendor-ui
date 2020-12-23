@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from 'react-router-dom'
 
 const Drawer = () => {
   const [accordionVar, setAccordionVar] = useState({
@@ -30,10 +31,10 @@ const Drawer = () => {
             Vendors
           </div>
           <div className="drawer_accordion-childWrapper ">
-            <div className="drawer_accordion-navigate">Add Vendor</div>
-            <div className="drawer_accordion-navigate">My Vendor</div>
-            <div className="drawer_accordion-navigate">Vendor Send Report</div>
-            <div className="drawer_accordion-navigate">Recommend</div>
+            <Link to='/add-vendor-form' className="drawer_accordion-navigate">Add Vendor</Link>
+            <Link to='/my-vendor' className="drawer_accordion-navigate">My Vendor</Link>
+            <Link to='/vendor-send-report' className="drawer_accordion-navigate">Vendor Send Report</Link>
+            <Link to='/vendor-recommend' className="drawer_accordion-navigate">Recommend</Link>
           </div>
         </div>
         <div

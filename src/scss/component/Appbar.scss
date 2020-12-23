@@ -22,5 +22,10 @@
       align-items: center;
       background-color: $bleuDeFrance;
     }
+
+    &-icon {
+      margin-left: rem(20);
+      cursor: pointer;
+    }
   }
 }

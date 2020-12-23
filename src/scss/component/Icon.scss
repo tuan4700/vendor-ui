@@ -1,0 +1,17 @@
+.icon {
+  &-bell {
+    @include loadIcon("../../assets/icons/bell.png");
+  }
+  &-loupe {
+    @include loadIcon("../../assets/icons/loupe.png");
+  }
+  &-menu {
+    @include loadIcon("../../assets/icons/menu.png");
+  }
+  &-more {
+    @include loadIcon("../../assets/icons/more.png");
+  }
+  &-whiteCross {
+    @include loadIcon("../../assets/icons/white-cross.png");
+  }
+}

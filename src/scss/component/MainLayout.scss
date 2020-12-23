@@ -3,6 +3,7 @@
   display: flex;
   align-items: stretch;
   background-color: $platinum;
+  @include scrollbar();
 
   &_content {
     flex-grow: 1;

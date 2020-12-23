@@ -40,6 +40,7 @@
       cursor: pointer;
       transition: $normal-transition;
       position: relative;
+      padding: rem(10);
 
       &::after {
         position: absolute;
@@ -69,6 +70,7 @@
       display: flex;
       align-items: center;
       color: $darkGray;
+      margin-left: rem(10);
     }
   }
 }
