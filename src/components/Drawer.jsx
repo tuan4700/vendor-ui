@@ -1,7 +1,9 @@
 import { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
 
 const Drawer = () => {
+  const location = useLocation();
+
   const [accordionVar, setAccordionVar] = useState({
     vendor: false,
     contract: false,
@@ -13,6 +15,11 @@ const Drawer = () => {
       ...accordionVar,
       [name]: !accordionVar[name],
     });
+  };
+
+  const handleCheckActive = (link) => {
+    if (link === location.pathname) return true;
+    else return false;
   };
 
   return (
@@ -31,10 +38,38 @@ const Drawer = () => {
             Vendors
           </div>
           <div className="drawer_accordion-childWrapper ">
-            <Link to='/add-vendor-form' className="drawer_accordion-navigate">Add Vendor</Link>
-            <Link to='/my-vendor' className="drawer_accordion-navigate">My Vendor</Link>
-            <Link to='/vendor-send-report' className="drawer_accordion-navigate">Vendor Send Report</Link>
-            <Link to='/vendor-recommend' className="drawer_accordion-navigate">Recommend</Link>
+            <Link
+              to="/add-vendor-form"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/add-vendor-form") ? "active" : ""
+              }`}
+            >
+              Add Vendor
+            </Link>
+            <Link
+              to="/my-vendor"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/my-vendor") ? "active" : ""
+              }`}
+            >
+              My Vendor
+            </Link>
+            <Link
+              to="/vendor-send-report"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/vendor-send-report") ? "active" : ""
+              }`}
+            >
+              Vendor Send Report
+            </Link>
+            <Link
+              to="/vendor-recommend"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/vendor-recommend") ? "active" : ""
+              }`}
+            >
+              Recommend
+            </Link>
           </div>
         </div>
         <div

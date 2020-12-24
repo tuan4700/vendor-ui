@@ -1,4 +1,5 @@
 import AddVendorForm from "./templates/AddVendorForm";
+import MyVendor from "./templates/MyVendor";
 import RecommendVendor from "./templates/RecommendVendor";
 
 const routes = [
@@ -9,6 +10,10 @@ const routes = [
   {
     link: "/vendor-recommend",
     component: <RecommendVendor />,
+  },
+  {
+    link: "/my-vendor",
+    component: <MyVendor />,
   },
 ];
 

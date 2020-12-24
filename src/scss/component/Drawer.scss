@@ -5,7 +5,7 @@
   &_brand {
     background-color: $lightCarminePink;
     color: $black;
-    height: rem(90);
+    height: rem(70);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +70,17 @@
       display: flex;
       align-items: center;
       color: $darkGray;
-      margin-left: rem(10);
+      padding-left: rem(10);
+
+      &:hover {
+        background-color: rgba($color: $platinum, $alpha: 0.1);
+        color: $lightCarminePink;
+      }
+
+      &.active {
+        background-color: rgba($color: $lightCarminePink, $alpha: 0.3);
+        color: $lightCarminePink;
+      }
     }
   }
 }

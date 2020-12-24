@@ -1,7 +1,10 @@
-const Button = ({ variant, children }) => {
+const Button = ({ variant, size, children, handleClick }) => {
   return (
     <button
-      className={`button ${variant ? `button-${variant}` : "button-default"}`}
+      className={`button ${variant ? `button-${variant}` : "button-default"} ${
+        size ? `button-${size}` : ""
+      }`}
+      onClick={handleClick}
     >
       {children}
     </button>

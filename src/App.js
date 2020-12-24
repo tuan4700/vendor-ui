@@ -10,7 +10,9 @@ function App() {
         <MainLayout>
           <Switch>
             {routes.map((item, index) => (
-              <Route path={item.link}>{item.component}</Route>
+              <Route key={index} path={item.link}>
+                {item.component}
+              </Route>
             ))}
           </Switch>
         </MainLayout>

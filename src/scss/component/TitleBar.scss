@@ -1,0 +1,21 @@
+.titleBar {
+  background-color: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: rem(10) rem(20);
+  &_title {
+    @include fontBase(32);
+    font-weight: bold;
+  }
+  &_actions {
+    display: flex;
+
+    &-btn {
+      border: rem(1) solid $platinum;
+      &:not(:first-child) {
+        margin-left: rem(10);
+      }
+    }
+  }
+}

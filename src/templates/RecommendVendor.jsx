@@ -1,9 +1,9 @@
-import RecommendBar from "../components/RecommendBar";
+import TitleBar from "../components/TitleBar";
 
 const RecommendVendor = () => {
   return (
     <div className="recommendVendor">
-        <RecommendBar/>
+        <TitleBar title='Recommend'/>
     </div>
   );
 };

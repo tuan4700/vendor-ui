@@ -13,3 +13,9 @@ $red: red;
 
 $fast-transition: all 0.15s linear;
 $normal-transition: all 0.25s linear;
+
+$normal-boxshadow: 0 0 12px
+  rgba(
+    $color: $black,
+    $alpha: 0.15,
+  );
