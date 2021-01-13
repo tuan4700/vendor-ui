@@ -15,7 +15,7 @@
   &_accordion {
     $accordion: &;
     background-color: $onyx;
-    height: calc(100% - 90px);
+    height: calc(100% - 70px);
 
     &-item {
       &.active {

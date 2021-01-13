@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
@@ -20,18 +19,6 @@ const VendorDrawer = ({ handleClose }) => {
     { title: "Official Email", value: "a@gmail.com" },
     { title: "Secondary Email", value: "a@gmail.com" },
     { title: "Mobile Number", value: "a" },
-  ];
-
-  const tableHeader = [
-    "Contract Number Correct",
-    "Contract Title",
-    "Contract",
-    "Contract Type",
-    "Start Date",
-    "End Date",
-    "Contract Files",
-    "Category",
-    "Contract Amount",
   ];
 
   return (
@@ -81,24 +68,6 @@ const VendorDrawer = ({ handleClose }) => {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="vendorDrawer_section">Current Contacts</div>
-      <div className="vendorDrawer_contactTable">
-        <table className="vendorDrawer_contactTable-table">
-          <thead>
-            <tr className="vendorDrawer_contactTable-headLine">
-              {tableHeader.map((ele, index) => (
-                <td key={index} className="vendorDrawer_contactTable-headItem">
-                  {ele}
-                </td>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="vendorDrawer_contactTable-body">
-            <tr></tr>
-          </tbody>
-        </table>
       </div>
     </div>
   );

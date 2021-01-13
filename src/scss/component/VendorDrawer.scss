@@ -45,21 +45,4 @@
       padding: rem(10);
     }
   }
-
-  &_contactTable {
-    overflow: auto;
-    margin-top: rem(30);
-
-    &-headLine {
-      background-color: rgba($color: $ruddyPink, $alpha: 0.3);
-    }
-
-    &-headItem {
-      white-space: nowrap;
-      padding: rem(10);
-    }
-    &-body {
-      min-height: rem(50);
-    }
-  }
 }

@@ -6,6 +6,18 @@ $platinum: #e4e4e4;
 $darkGray: #a8a8a8;
 $battleshipGrey: #848484;
 $ruddyPink: #eb8d8d;
+$ruddyPink05: rgba(
+  $color: $ruddyPink,
+  $alpha: 0.5,
+);
+$ruddyPink03: rgba(
+  $color: $ruddyPink,
+  $alpha: 0.3,
+);
+$ruddyPink015: rgba(
+  $color: $ruddyPink,
+  $alpha: 0.15,
+);
 
 $white: white;
 $black: black;
