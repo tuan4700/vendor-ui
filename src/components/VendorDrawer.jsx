@@ -1,24 +1,27 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
-const VendorDrawer = ({ handleClose }) => {
+const VendorDrawer = ({ vendor, handleClose }) => {
   const infoOverview = [
-    { title: "Name", value: "a" },
-    { title: "Type", value: "a" },
-    { title: "Total spend", value: "a" },
-    { title: "Status", value: "a" },
-    { title: "Country of Registration", value: "a" },
-    { title: "Company Registration Number", value: "a" },
-    { title: "Stock Symbol", value: "a" },
-    { title: "Company Website", value: "a" },
-    { title: "Relationship Since", value: "a" },
-    { title: "Status", value: "a" },
+    { title: "Name", value: vendor.name },
+    { title: "Type", value: vendor.type },
+    { title: "Total spend", value: vendor.totalSpend },
+    { title: "Status", value: vendor.status },
+    { title: "Country of Registration", value: vendor.countryOfRegistration },
+    {
+      title: "Company Registration Number",
+      value: vendor.companyRegistrationNumber,
+    },
+    { title: "Stock Symbol", value: vendor.stockSymbol },
+    { title: "Company Website", value: vendor.companyWebsite },
+    { title: "Relationship Since", value: vendor.relationshipSince },
+    { title: "Status", value: vendor.status },
   ];
   const infoContact = [
-    { title: "Main Contact Person", value: "a" },
-    { title: "Official Email", value: "a@gmail.com" },
-    { title: "Secondary Email", value: "a@gmail.com" },
-    { title: "Mobile Number", value: "a" },
+    { title: "Main Contact Person", value: vendor.mainContactPerson },
+    { title: "Official Email", value: vendor.officialEmail },
+    { title: "Secondary Email", value: vendor.secondaryEmail },
+    { title: "Mobile Number", value: vendor.mobileNumber },
   ];
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TitleBar from "../components/TitleBar";
-import { fakeVendorContact } from "../fakeData";
+import { fakeVendor } from "../fakeData";
 import PdfDocument from "../components/PdfDocument";
 import { PDFViewer } from "@react-pdf/renderer";
 
@@ -9,7 +9,7 @@ const MyVendor = () => {
     "Select",
     "Name",
     "Current Contracts",
-    "Main Contracts Person",
+    "Main Contact Person",
     "Official Email",
     "Total Spend",
   ];
@@ -35,7 +35,7 @@ const MyVendor = () => {
             </tr>
           </thead>
           <tbody className="myVendor_contactTable-body">
-            {fakeVendorContact.map((ele, index) => (
+            {fakeVendor.map((ele, index) => (
               <tr
                 key={index}
                 className={`myVendor_contactTable-row ${
@@ -54,10 +54,10 @@ const MyVendor = () => {
                 </td>
                 <td className="myVendor_contactTable-data">{ele.name}</td>
                 <td className="myVendor_contactTable-data">
-                  {ele.currentContract}
+                  {ele.currentContact}
                 </td>
                 <td className="myVendor_contactTable-data">
-                  {ele.mainContract}
+                  {ele.mainContactPerson}
                 </td>
                 <td className="myVendor_contactTable-data">
                   {ele.officialEmail}
@@ -79,7 +79,7 @@ const MyVendor = () => {
           </div>
           <div className="myVendor_exportPdf-pdfViewer">
             <PDFViewer>
-              <PdfDocument data={fakeVendorContact[selectedInfo]} />
+              <PdfDocument data={fakeVendor[selectedInfo]} />
             </PDFViewer>
           </div>
         </div>

@@ -6,7 +6,7 @@ const VendorMiniForm = ({ vendor, onClick }) => {
       <div className="vendorMiniForm_mainContent">
         <div className="vendorMiniForm_mainContent-info">
           <div className="vendorMiniForm_mainContent-title">
-            {(vendor && vendor.vendorName) || "a"}
+            {(vendor && vendor.name) || ""}
           </div>
           <div className="vendorMiniForm_mainContent-action">
             <Icon name="more" />
@@ -15,14 +15,13 @@ const VendorMiniForm = ({ vendor, onClick }) => {
       </div>
       <div className="vendorMiniForm_externalInfo">
         <div className="vendorMiniForm_externalInfo-name">
-          {(vendor && vendor.firstName) || "a"}
-          {(vendor && vendor.lastName) || "a"}
+          {(vendor && vendor.mainContactPerson) || ""}
         </div>
         <div className="vendorMiniForm_externalInfo-email">
-          {(vendor && vendor.email) || "a@gmail.com"}
+          {(vendor && vendor.officialEmail) || ""}
         </div>
         <div className="vendorMiniForm_externalInfo-total">
-          ${(vendor && vendor.totalSpend) || "0.00"}
+          ${(vendor && vendor.totalSpend) || "0"}
         </div>
       </div>
     </div>

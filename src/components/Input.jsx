@@ -1,4 +1,4 @@
-const Input = ({ name, id, label, isRequired, placeholder }) => {
+const Input = ({ name, id, label, isRequired, placeholder, handleChange }) => {
   return (
     <div className="input">
       {label ? (
@@ -9,12 +9,15 @@ const Input = ({ name, id, label, isRequired, placeholder }) => {
           >
             {label}
           </label>
-          <input
-            className="input_input"
-            name={name}
-            id={id}
-            placeholder={placeholder}
-          ></input>
+          <div className="input_inputContainer">
+            <input
+              className="input_input"
+              name={name}
+              id={id}
+              placeholder={placeholder}
+              onChange={handleChange}
+            ></input>
+          </div>
         </>
       ) : null}
     </div>

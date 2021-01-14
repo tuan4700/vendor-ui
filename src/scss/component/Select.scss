@@ -1,4 +1,4 @@
-.input {
+.select {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,16 +15,12 @@
     }
   }
 
-  &_input {
-    width: calc(100% - 16px);
-    border: rem(1) solid $battleshipGrey;
-    outline: none;
-    font-size: rem(24);
-    padding: rem(8);
-  }
-
-  &_inputContainer {
+  &_selectContainer {
     max-width: rem(250);
     flex-shrink: 0;
+    flex-basis: 100%;
+  }
+  &_select {
+    width: 100%;
   }
 }
