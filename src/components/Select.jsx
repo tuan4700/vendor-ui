@@ -6,7 +6,7 @@ const colourStyles = {
     ...styles,
     backgroundColor: "white",
     border: "1px solid #848484",
-    padding: "6px",
+    padding: "3px",
     borderRadius: 0,
   }),
   // /input: (styles) => ({ ...styles }),

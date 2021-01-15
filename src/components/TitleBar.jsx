@@ -1,27 +1,43 @@
 import Button from "./Button";
 import Icon from "./Icon";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const TitleBar = ({ title, exportPdf }) => {
+const TitleBar = (props) => {
+  const [openSearch, setOpenSearch] = useState(false);
+
   return (
     <div className="titleBar">
-      <div className="titleBar_title">{title}</div>
+      <div className="titleBar_title">{props.title}</div>
       <div className="titleBar_actions">
-        {exportPdf && (
+        {props.exportPdf && (
           <div className="titleBar_actions-btn titleBar_actions-export">
-            <Button size="small" handleClick={exportPdf}>
+            <Button size="small" handleClick={props.exportPdf}>
               Export PDF
             </Button>
           </div>
         )}
+        <div
+          className={`titleBar_actions-btn titleBar_actions-search-input ${
+            openSearch ? "show" : ""
+          }`}
+        >
+          {props.search}
+        </div>
         <div className="titleBar_actions-btn titleBar_actions-search">
-          <Button size="small">
+          <Button
+            size="small"
+            handleClick={() => setOpenSearch((prev) => !prev)}
+          >
             <Icon name="loupe" />
           </Button>
         </div>
         <div className="titleBar_actions-btn titleBar_actions-add">
-          <Button size="small" variant="primary">
-            <Icon name="whiteCross" />
-          </Button>
+          <Link to="/add-vendor-form">
+            <Button size="small" variant="primary">
+              <Icon name="whiteCross" />
+            </Button>
+          </Link>
         </div>
         <div className="titleBar_actions-btn titleBar_actions-menu">
           <Button size="small">

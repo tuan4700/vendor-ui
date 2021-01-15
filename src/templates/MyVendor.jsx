@@ -3,6 +3,7 @@ import TitleBar from "../components/TitleBar";
 import { fakeVendor } from "../fakeData";
 import PdfDocument from "../components/PdfDocument";
 import { PDFViewer } from "@react-pdf/renderer";
+import Input from "../components/Input";
 
 const MyVendor = () => {
   const tableHeader = [
@@ -16,11 +17,28 @@ const MyVendor = () => {
 
   const [openPdf, setOpenPdf] = useState(false);
   const [selectedInfo, setSelectedInfo] = useState("0");
+  const [searchTerm, setSearchTerm] = useState([]);
+
+  console.log(searchTerm);
+
+  const handleSearch = (e) => {
+    setSearchTerm(fakeVendor.filter((ele) => ele.name === e.target.value));
+  };
 
   return (
     <div className="myVendor">
       <div className="myVendor_titleBar">
-        <TitleBar title="My Vendor" exportPdf={() => setOpenPdf(true)} />
+        <TitleBar
+          title="My Vendor"
+          exportPdf={() => setOpenPdf(true)}
+          search={
+            <Input
+              id="vendor-name-input"
+              name="name"
+              handleChange={(e) => handleSearch(e)}
+            />
+          }
+        />
       </div>
 
       <div className="myVendor_contactTable">
@@ -35,36 +53,71 @@ const MyVendor = () => {
             </tr>
           </thead>
           <tbody className="myVendor_contactTable-body">
-            {fakeVendor.map((ele, index) => (
-              <tr
-                key={index}
-                className={`myVendor_contactTable-row ${
-                  index.toString() === selectedInfo ? "selected" : ""
-                }`}
-              >
-                <td className="myVendor_contactTable-radio">
-                  <input
-                    value={index}
-                    id={`type_radio_${index}`}
-                    checked={index.toString() === selectedInfo}
-                    name="type_radio"
-                    type="radio"
-                    onChange={(e) => setSelectedInfo(e.target.value)}
-                  />
-                </td>
-                <td className="myVendor_contactTable-data">{ele.name}</td>
-                <td className="myVendor_contactTable-data">
-                  {ele.currentContact}
-                </td>
-                <td className="myVendor_contactTable-data">
-                  {ele.mainContactPerson}
-                </td>
-                <td className="myVendor_contactTable-data">
-                  {ele.officialEmail}
-                </td>
-                <td className="myVendor_contactTable-data">{ele.totalSpend}</td>
-              </tr>
-            ))}
+            {searchTerm.length > 0
+              ? searchTerm.map((ele, index) => (
+                  <tr
+                    key={index}
+                    className={`myVendor_contactTable-row ${
+                      index.toString() === selectedInfo ? "selected" : ""
+                    }`}
+                  >
+                    <td className="myVendor_contactTable-radio">
+                      <input
+                        value={index}
+                        id={`type_radio_${index}`}
+                        checked={index.toString() === selectedInfo}
+                        name="type_radio"
+                        type="radio"
+                        onChange={(e) => setSelectedInfo(e.target.value)}
+                      />
+                    </td>
+                    <td className="myVendor_contactTable-data">{ele.name}</td>
+                    <td className="myVendor_contactTable-data">
+                      {ele.currentContact}
+                    </td>
+                    <td className="myVendor_contactTable-data">
+                      {ele.mainContactPerson}
+                    </td>
+                    <td className="myVendor_contactTable-data">
+                      {ele.officialEmail}
+                    </td>
+                    <td className="myVendor_contactTable-data">
+                      {ele.totalSpend}
+                    </td>
+                  </tr>
+                ))
+              : fakeVendor.map((ele, index) => (
+                  <tr
+                    key={index}
+                    className={`myVendor_contactTable-row ${
+                      index.toString() === selectedInfo ? "selected" : ""
+                    }`}
+                  >
+                    <td className="myVendor_contactTable-radio">
+                      <input
+                        value={index}
+                        id={`type_radio_${index}`}
+                        checked={index.toString() === selectedInfo}
+                        name="type_radio"
+                        type="radio"
+                        onChange={(e) => setSelectedInfo(e.target.value)}
+                      />
+                    </td>
+                    <td className="myVendor_contactTable-data">{ele.name}</td>
+                    <td className="myVendor_contactTable-data">
+                      {ele.currentContact}
+                    </td>
+                    <td className="myVendor_contactTable-data">
+                      {ele.mainContactPerson}
+                    </td>
+                    <td className="myVendor_contactTable-data">
+                      {ele.officialEmail}
+                    </td>
+                    <td className="myVendor_contactTable-data">
+                      {ele.totalSpend}
+                    </td>
+                  </tr>
+                ))}
           </tbody>
         </table>
       </div>

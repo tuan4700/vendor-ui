@@ -48,7 +48,7 @@ const VendorDrawer = ({ vendor, handleClose }) => {
       <div className="vendorDrawer_section">Overview</div>
       <div className="vendorDrawer_informationTable">
         {infoOverview.map((ele, index) => (
-          <div className="vendorDrawer_informationTable-line">
+          <div key={index} className="vendorDrawer_informationTable-line">
             <div className="vendorDrawer_informationTable-title">
               {ele.title}
             </div>

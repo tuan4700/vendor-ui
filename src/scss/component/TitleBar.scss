@@ -17,5 +17,16 @@
         margin-left: rem(10);
       }
     }
+
+    &-search-input {
+      max-width: 0;
+      visibility: hidden;
+      transition: $normal-transition;
+      overflow: hidden;
+      &.show {
+        max-width: rem(260);
+        visibility: visible;
+      }
+    }
   }
 }
