@@ -66,11 +66,10 @@
 
     &-navigate {
       font-size: rem(24);
-      height: rem(48);
       display: flex;
       align-items: center;
       color: $darkGray;
-      padding-left: rem(10);
+      padding: rem(10) 0 rem(10) rem(10);
 
       &:hover {
         background-color: rgba($color: $platinum, $alpha: 0.1);

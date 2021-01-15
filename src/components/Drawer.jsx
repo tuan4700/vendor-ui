@@ -84,8 +84,22 @@ const Drawer = () => {
             Contracts
           </div>
           <div className="drawer_accordion-childWrapper ">
-            <div className="drawer_accordion-navigate">Add Contact</div>
-            <div className="drawer_accordion-navigate">My Contact</div>
+            <Link
+              to="/add-contact-form"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/add-contact-form") ? "active" : ""
+              }`}
+            >
+              Add Contact
+            </Link>
+            <Link
+              to="/my-contact"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/my-contact") ? "active" : ""
+              }`}
+            >
+              My Contact
+            </Link>
             <div className="drawer_accordion-navigate">Edit History</div>
           </div>
         </div>{" "}

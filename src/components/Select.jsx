@@ -13,7 +13,7 @@ const colourStyles = {
   //placeholder: (styles) => ({ ...styles }),
 };
 
-const ReactSelect = ({ label, id, isRequired, options }) => (
+const ReactSelect = ({ label, id, isRequired, options, getValue }) => (
   <div className="select">
     {label ? (
       <>
@@ -29,6 +29,7 @@ const ReactSelect = ({ label, id, isRequired, options }) => (
             styles={colourStyles}
             options={options}
             placeholder="- Select -"
+            onChange={getValue}
           />
         </div>
       </>

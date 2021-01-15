@@ -1,5 +1,8 @@
 import AddVendorForm from "./templates/AddVendorForm";
 import MyVendor from "./templates/MyVendor";
+import AddContactForm from "./templates/AddContactForm";
+import MyContact from "./templates/MyContact";
+
 import RecommendVendor from "./templates/RecommendVendor";
 
 const routes = [
@@ -14,6 +17,14 @@ const routes = [
   {
     link: "/my-vendor",
     component: <MyVendor />,
+  },
+  {
+    link: "/add-contact-form",
+    component: <AddContactForm />,
+  },
+  {
+    link: "/my-contact",
+    component: <MyContact />,
   },
 ];
 

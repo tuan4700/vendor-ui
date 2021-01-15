@@ -1,4 +1,5 @@
 import Input from "../components/Input";
+import DatePicker from "../components/DatePicker";
 import Button from "../components/Button";
 import Select from "../components/Select";
 import { useState } from "react";
@@ -29,7 +30,6 @@ const AddVendorForm = () => {
     qualified: "Yes",
     companyWebsite: "haha.com",
     internalRepresentative: "unknown",
-    relationshipSince: "2020",
     currentContact: "Myself",
     mainContact: "Myself",
     officialEmail: "a@gmail.com",
@@ -43,6 +43,13 @@ const AddVendorForm = () => {
 
   const handleSubmit = () => {
     fakeVendor.push(formData);
+  };
+
+  const handleNewDate = (newDate, property) => {
+    setFormData({
+      ...formData,
+      [property]: newDate,
+    });
   };
 
   return (
@@ -110,12 +117,16 @@ const AddVendorForm = () => {
               label="Internal Representative"
               options={internalOptions}
             />
-            <Input
+
+            <DatePicker
               id="vendor-relationship-input"
               name="relationshipSince"
               isRequired
               label={"Relationship Since"}
-              handleChange={handleTextChange}
+              value={formData.relationshipSince || new Date()}
+              handleChange={(newDate) =>
+                handleNewDate(newDate, "relationshipSince")
+              }
             />
             <div className="addVendorForm_form-section">
               Contact Information
