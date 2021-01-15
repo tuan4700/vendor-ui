@@ -134,7 +134,7 @@ const MyVendor = () => {
           </div>
           <div className="myVendor_exportPdf-pdfViewer">
             <PDFViewer>
-              <PdfDocument data={fakeVendor[selectedInfo]} />
+              <PdfDocument data={fakeVendor[selectedInfo]} vendor />
             </PDFViewer>
           </div>
         </div>

@@ -37,6 +37,18 @@
       margin-top: rem(30);
     }
 
+    &-radio {
+      &_title {
+        @include fontBase(24);
+      }
+
+      &_container {
+        margin-top: 10;
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+
     &-section {
       @include fontBase(32);
       font-weight: bold;

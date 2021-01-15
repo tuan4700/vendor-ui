@@ -1,4 +1,5 @@
 import Input from "../components/Input";
+import Radio from "../components/Radio";
 import Button from "../components/Button";
 import Select from "../components/Select";
 import DatePicker from "../components/DatePicker";
@@ -41,12 +42,14 @@ const AddContractForm = () => {
     type: "ohh",
   });
 
+  const [selectedType, setSelectedType] = useState("new");
+
   const handleTextChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = () => {
-    fakeContract.push(formData);
+    fakeContract.push({ ...formData, type: selectedType });
   };
 
   const handleNewDate = (newDate, property) => {
@@ -62,6 +65,29 @@ const AddContractForm = () => {
       <div className="addContractForm_form">
         <div className="addContractForm_form-content">
           <div className="addContractForm_form-left">
+            <div className="addContractForm_form-radio">
+              <div className="addContractForm_form-radio_title">Contract</div>
+              <div className="addContractForm_form-radio_container">
+                <Radio
+                  value="new"
+                  id={`type_radio_new`}
+                  checked={selectedType === "new"}
+                  name="type_radio"
+                  type="radio"
+                  label="New"
+                  handleChange={(e) => setSelectedType(e.target.value)}
+                />
+                <Radio
+                  value="renewal"
+                  label="Renewal"
+                  id={`type_radio_renewal`}
+                  checked={selectedType === "renewal"}
+                  name="type_radio"
+                  type="radio"
+                  handleChange={(e) => setSelectedType(e.target.value)}
+                />
+              </div>
+            </div>
             <div className="addContractForm_form-input">
               <Select
                 id="contract-vendor-select"

@@ -54,7 +54,7 @@ const MyContract = () => {
           <tbody className="myContract_contactTable-body">
             {searchTerm !== ""
               ? fakeContract
-                  .filter((ele) => ele.title.includes(searchTerm))
+                  .filter((ele) => ele.contractTitle.includes(searchTerm))
                   .map((ele, index) => (
                     <tr
                       key={index}
@@ -79,7 +79,7 @@ const MyContract = () => {
                         {ele.product}
                       </td>
                       <td className="myContract_contactTable-data">
-                        {ele.title}
+                        {ele.contractTitle}
                       </td>
                       <td className="myContract_contactTable-data">
                         {ele.contract}
