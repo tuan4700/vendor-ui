@@ -112,7 +112,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
             </Link>
             <div className="drawer_accordion-navigate">Edit History</div>
           </div>
-        </div>{" "}
+        </div>
         <div
           className={`drawer_accordion-item ${
             accordionVar.rating ? "active" : ""
@@ -123,6 +123,27 @@ const Drawer = ({ open, handleCloseDrawer }) => {
             onClick={() => handleAccordion("rating")}
           >
             Vendor Rating
+          </div>
+          <div
+            className="drawer_accordion-childWrapper "
+            onClick={handleCloseDrawer}
+          >
+            <Link
+              to="/rate-your-vendor"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/rate-your-vendor") ? "active" : ""
+              }`}
+            >
+              Rate Your Vendor
+            </Link>
+            <Link
+              to="/vendor-review"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/vendor-review") ? "active" : ""
+              }`}
+            >
+              Vendor Review
+            </Link>
           </div>
         </div>
       </div>

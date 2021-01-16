@@ -57,22 +57,16 @@
         @include desktop-down {
           @include fontBase(20);
         }
+
+        @include mobile-down {
+          @include fontBase(16);
+        }
       }
 
       &_container {
         margin-top: rem(10);
         display: flex;
         justify-content: space-evenly;
-      }
-    }
-
-    &-section {
-      @include fontBase(32);
-      font-weight: bold;
-
-      @include desktop-down {
-        @include fontBase(28);
-        margin-top: rem(20);
       }
     }
 

@@ -19,31 +19,8 @@
     padding: rem(20);
 
     &-content {
-      display: flex;
-      flex-grow: 1;
-
-      @include desktop-down {
-        flex-wrap: wrap;
-      }
-    }
-
-    &-left,
-    &-right {
-      flex: 0 0 calc(50% - 30px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-
-      @include desktop-down {
-        flex: 0 0 100%;
-      }
-    }
-    &-right {
-      margin-left: rem(30);
-
-      @include desktop-down {
-        margin-left: 0;
-      }
+      min-width: 60%;
+      margin: rem(10) auto;
     }
 
     &-input {
@@ -51,18 +28,41 @@
     }
 
     &-radio {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: rem(30);
+
+      @include mobile-down {
+        display: block;
+      }
+
       &_title {
         @include fontBase(24);
 
         @include desktop-down {
           @include fontBase(20);
         }
+
+        @include mobile-down {
+          @include fontBase(16);
+        }
+
+        &::after {
+          content: "*";
+          color: $red;
+        }
       }
 
       &_container {
+        flex: 0 0 80%;
         margin-top: rem(10);
         display: flex;
         justify-content: space-evenly;
+
+        @include mobile-down {
+          flex: 0 0 100%;
+        }
       }
     }
 
