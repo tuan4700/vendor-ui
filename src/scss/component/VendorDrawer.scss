@@ -4,6 +4,10 @@
   height: 100vh;
   overflow: auto;
 
+  @include mobile-down {
+    width: 100vw;
+  }
+
   &_actionBar {
     display: flex;
     justify-content: flex-end;

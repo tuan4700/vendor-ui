@@ -12,7 +12,10 @@ const MainLayout = ({ children }) => {
   return (
     <div className="mainLayout">
       <div className="mainLayout_drawer">
-        <Drawer open={openDrawer} />
+        <Drawer
+          open={openDrawer}
+          handleCloseDrawer={() => setOpenDrawer(false)}
+        />
       </div>
       <div className="mainLayout_content">
         <div className="mainLayout_appbar">

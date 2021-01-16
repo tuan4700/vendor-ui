@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Icon from "../components/Icon";
 
-const Drawer = ({ open }) => {
+const Drawer = ({ open, handleCloseDrawer }) => {
   const location = useLocation();
 
   const [accordionVar, setAccordionVar] = useState({
@@ -24,7 +25,10 @@ const Drawer = ({ open }) => {
 
   return (
     <div className={`drawer ${open ? "show" : ""}`}>
-      <div className="drawer_brand">Vendor</div>
+      <div className="drawer_brand">Vendor </div>
+      <div className="drawer_menu" onClick={handleCloseDrawer}>
+        <Icon name="menu" />
+      </div>
       <div className="drawer_accordion">
         <div
           className={`drawer_accordion-item ${
@@ -37,7 +41,10 @@ const Drawer = ({ open }) => {
           >
             Vendors
           </div>
-          <div className="drawer_accordion-childWrapper ">
+          <div
+            className="drawer_accordion-childWrapper "
+            onClick={handleCloseDrawer}
+          >
             <Link
               to="/add-vendor-form"
               className={`drawer_accordion-navigate ${
@@ -83,7 +90,10 @@ const Drawer = ({ open }) => {
           >
             Contracts
           </div>
-          <div className="drawer_accordion-childWrapper ">
+          <div
+            className="drawer_accordion-childWrapper "
+            onClick={handleCloseDrawer}
+          >
             <Link
               to="/add-contact-form"
               className={`drawer_accordion-navigate ${

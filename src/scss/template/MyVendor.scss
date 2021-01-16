@@ -2,12 +2,29 @@
   flex-grow: 1;
   background-color: $white;
   overflow: auto;
+  position: relative;
 
   &_contactTable {
     margin-top: rem(30);
+    overflow: auto;
+
+    &-container {
+      width: 100%;
+      overflow: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
 
     &-table {
       width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      white-space: nowrap;
+      th,
+      td {
+        min-width: rem(100);
+      }
     }
 
     &-headLine {

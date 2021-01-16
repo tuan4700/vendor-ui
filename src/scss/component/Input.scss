@@ -3,6 +3,10 @@
   justify-content: space-between;
   align-items: center;
 
+  @include mobile-down {
+    display: block;
+  }
+
   &_label {
     @include fontBase(24);
     flex-shrink: 1;

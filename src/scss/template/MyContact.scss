@@ -1,13 +1,23 @@
 .myContract {
   flex-grow: 1;
   background-color: $white;
+  position: relative;
 
   &_contactTable {
+    width: 100%;
     overflow: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
     margin-top: rem(30);
 
     &-table {
       width: 100%;
+
+      th,
+      td {
+        min-width: rem(100);
+      }
     }
 
     &-headLine {

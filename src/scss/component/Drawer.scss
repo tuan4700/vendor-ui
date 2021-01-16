@@ -2,6 +2,7 @@
   width: rem(300);
   height: 100%;
   transition: all $normal-transition linear;
+  position: relative;
 
   @include max-desktop-down {
     width: 0;
@@ -9,9 +10,27 @@
     opacity: 0;
 
     &.show {
-      width: rem(230);
+      width: rem(250);
       opacity: 1;
       visibility: visible;
+    }
+  }
+
+  @include mobile-down {
+    &.show {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+    }
+  }
+
+  &_menu {
+    display: none;
+    @include mobile-down {
+      display: block;
+      position: absolute;
+      top: rem(25);
+      right: rem(25);
     }
   }
 
@@ -29,6 +48,7 @@
     $accordion: &;
     background-color: $onyx;
     height: calc(100% - 70px);
+    overflow: auto;
 
     &-item {
       &.active {
