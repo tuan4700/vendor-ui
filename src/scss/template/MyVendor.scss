@@ -1,9 +1,9 @@
 .myVendor {
   flex-grow: 1;
   background-color: $white;
+  overflow: auto;
 
   &_contactTable {
-    overflow: auto;
     margin-top: rem(30);
 
     &-table {

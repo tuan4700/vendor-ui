@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const Drawer = () => {
+const Drawer = ({ open }) => {
   const location = useLocation();
 
   const [accordionVar, setAccordionVar] = useState({
@@ -23,7 +23,7 @@ const Drawer = () => {
   };
 
   return (
-    <div className="drawer">
+    <div className={`drawer ${open ? "show" : ""}`}>
       <div className="drawer_brand">Vendor</div>
       <div className="drawer_accordion">
         <div

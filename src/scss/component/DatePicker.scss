@@ -7,6 +7,14 @@
     @include fontBase(24);
     flex-shrink: 1;
 
+    @include desktop-down {
+      @include fontBase(20);
+    }
+
+    @include mobile-down {
+      @include fontBase(16);
+    }
+
     &.required {
       &::after {
         content: "*";

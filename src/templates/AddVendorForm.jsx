@@ -58,107 +58,132 @@ const AddVendorForm = () => {
       <div className="addVendorForm_form">
         <div className="addVendorForm_form-content">
           <div className="addVendorForm_form-left">
-            <Input
-              id="vendor-name-input"
-              name="name"
-              isRequired
-              label={"Name"}
-              handleChange={handleTextChange}
-            />
-            <Select
-              id="vendor-type-select"
-              name="vendor-type-select"
-              isRequired
-              label={"Type"}
-              options={typeOptions}
-            />
-            <Select
-              id="vendor-country-select"
-              name="countryOfRegistration"
-              isRequired
-              label="Country of Registration"
-              options={countryOptions}
-            />
-            <Input
-              id="vendor-companynumber-input"
-              name="companyRegistrationNumber"
-              isRequired
-              label={"Company Registration Number"}
-              handleChange={handleTextChange}
-            />
-            <Input
-              id="vendor-stocksymbol-input"
-              name="stockSymbol"
-              isRequired
-              label={"Stock Symbol"}
-              handleChange={handleTextChange}
-            />
-            <Input
-              id="vendor-companywebsite-input"
-              name="companyWebsite"
-              isRequired
-              label={"Company Website"}
-              placeholder={"https://"}
-              handleChange={handleTextChange}
-            />
-            <Input
-              id="vendor-dealwith-input"
-              name="dealWith"
-              isRequired
-              label={"Deal with"}
-              handleChange={handleTextChange}
-            />
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-name-input"
+                name="name"
+                isRequired
+                label={"Name"}
+                handleChange={handleTextChange}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Select
+                id="vendor-type-select"
+                name="vendor-type-select"
+                isRequired
+                label={"Type"}
+                options={typeOptions}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Select
+                id="vendor-country-select"
+                name="countryOfRegistration"
+                isRequired
+                label="Country of Registration"
+                options={countryOptions}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-companynumber-input"
+                name="companyRegistrationNumber"
+                isRequired
+                label={"Company Registration Number"}
+                handleChange={handleTextChange}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-stocksymbol-input"
+                name="stockSymbol"
+                isRequired
+                label={"Stock Symbol"}
+                handleChange={handleTextChange}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-companywebsite-input"
+                name="companyWebsite"
+                isRequired
+                label={"Company Website"}
+                placeholder={"https://"}
+                handleChange={handleTextChange}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-dealwith-input"
+                name="dealWith"
+                isRequired
+                label={"Deal with"}
+                handleChange={handleTextChange}
+              />
+            </div>
           </div>
           <div className="addVendorForm_form-right">
-            <Select
-              id="vendor-internal-select"
-              name="internalRepresentative"
-              isRequired
-              label="Internal Representative"
-              options={internalOptions}
-            />
-
-            <DatePicker
-              id="vendor-relationship-input"
-              name="relationshipSince"
-              isRequired
-              label={"Relationship Since"}
-              value={formData.relationshipSince || new Date()}
-              handleChange={(newDate) =>
-                handleNewDate(newDate, "relationshipSince")
-              }
-            />
+            <div className="addVendorForm_form-input">
+              <Select
+                id="vendor-internal-select"
+                name="internalRepresentative"
+                isRequired
+                label="Internal Representative"
+                options={internalOptions}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <DatePicker
+                id="vendor-relationship-input"
+                name="relationshipSince"
+                isRequired
+                label={"Relationship Since"}
+                value={formData.relationshipSince || new Date()}
+                handleChange={(newDate) =>
+                  handleNewDate(newDate, "relationshipSince")
+                }
+              />
+            </div>
             <div className="addVendorForm_form-section">
               Contact Information
             </div>
-            <Input
-              id="vendor-main-contact-input"
-              name="mainContactPerson"
-              isRequired
-              label={"Main Contact Person"}
-              handleChange={handleTextChange}
-            />
-            <Input
-              id="vendor-oemail-input"
-              name="officialEmail"
-              isRequired
-              label={"Official Email"}
-              handleChange={handleTextChange}
-            />
-            <Input
-              id="vendor-semail-input"
-              name="secondaryEmail"
-              isRequired
-              label={"Secondary Email"}
-              handleChange={handleTextChange}
-            />
-            <Input
-              id="vendor-mobile-input"
-              name="mobileNumber"
-              isRequired
-              label={"Mobile Number"}
-              handleChange={handleTextChange}
-            />
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-main-contact-input"
+                name="mainContactPerson"
+                isRequired
+                label={"Main Contact Person"}
+                handleChange={handleTextChange}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-oemail-input"
+                name="officialEmail"
+                isRequired
+                label={"Official Email"}
+                handleChange={handleTextChange}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-semail-input"
+                name="secondaryEmail"
+                isRequired
+                label={"Secondary Email"}
+                handleChange={handleTextChange}
+              />
+            </div>
+            <div className="addVendorForm_form-input">
+              <Input
+                id="vendor-mobile-input"
+                name="mobileNumber"
+                isRequired
+                label={"Mobile Number"}
+                handleChange={handleTextChange}
+              />
+            </div>
           </div>
         </div>
         <div className="addVendorForm_form-actions">

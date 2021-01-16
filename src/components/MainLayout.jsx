@@ -1,15 +1,22 @@
+import { useState } from "react";
 import Appbar from "./Appbar";
 import Drawer from "./Drawer";
 
 const MainLayout = ({ children }) => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const handleOpenDrawer = () => {
+    setOpenDrawer((prev) => !prev);
+  };
+
   return (
     <div className="mainLayout">
       <div className="mainLayout_drawer">
-        <Drawer />
+        <Drawer open={openDrawer} />
       </div>
       <div className="mainLayout_content">
         <div className="mainLayout_appbar">
-          <Appbar />
+          <Appbar handleOpenDrawer={handleOpenDrawer} />
         </div>
         <div className="mainLayout_main">{children}</div>
       </div>

@@ -7,6 +7,18 @@
   padding-right: rem(20);
   padding-left: rem(20);
 
+  @include max-desktop-down {
+    justify-content: space-between;
+  }
+
+  &_menu {
+    display: none;
+
+    @include max-desktop-down {
+      display: block;
+    }
+  }
+
   &_account {
     display: flex;
     justify-content: flex-end;

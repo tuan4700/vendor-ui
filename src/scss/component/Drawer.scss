@@ -1,6 +1,19 @@
 .drawer {
   width: rem(300);
   height: 100%;
+  transition: all $normal-transition linear;
+
+  @include max-desktop-down {
+    width: 0;
+    visibility: hidden;
+    opacity: 0;
+
+    &.show {
+      width: rem(230);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 
   &_brand {
     background-color: $lightCarminePink;
@@ -28,19 +41,26 @@
         #{$accordion}-childWrapper {
           opacity: 1;
           visibility: visible;
-          max-height: rem(198);
+          max-height: rem(250);
           border-left: rem(1) solid $lightCarminePink;
         }
       }
     }
 
     &-title {
-      color: $snow;
-      font-size: rem(32);
+      @include fontBase(32, $snow);
       cursor: pointer;
       transition: $normal-transition;
       position: relative;
       padding: rem(10);
+
+      @include max-desktop-down {
+        @include fontBase(28, $snow);
+      }
+
+      @include desktop-down {
+        @include fontBase(24, $snow);
+      }
 
       &::after {
         position: absolute;
