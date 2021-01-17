@@ -3,7 +3,7 @@ import MyVendor from "./templates/MyVendor";
 import AddContactForm from "./templates/AddContactForm";
 import MyContact from "./templates/MyContact";
 import RateYourVendor from "./templates/RateYourVendor";
-
+import VendorReview from "./templates/VendorReview";
 import RecommendVendor from "./templates/RecommendVendor";
 
 const routes = [
@@ -30,6 +30,10 @@ const routes = [
   {
     link: "/rate-your-vendor",
     component: <RateYourVendor />,
+  },
+  {
+    link: "/vendor-review",
+    component: <VendorReview />,
   },
 ];
 

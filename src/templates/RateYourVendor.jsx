@@ -12,7 +12,6 @@ const handleCamelToCapital = (text) => {
 };
 
 const vendorOptions = fakeVendor.map((element) => {
-  console.log(element);
   return {
     value: element.name,
     label: handleCamelToCapital(element.name),
@@ -57,7 +56,11 @@ const RateYourVendor = () => {
   const handleSubmit = () => {
     // var foundIndex = fakeVendor.findIndex((x) => x.name === formData.name);
     // fakeRateVendor[foundIndex] = formData;
-    fakeRateVendor.push(formData);
+    fakeRateVendor.push({
+      ...formData,
+      ratedBy: "Anh Tuan",
+      averageRating: averateRating,
+    });
   };
 
   const handleRatingSelect = (e) => {
@@ -107,7 +110,7 @@ const RateYourVendor = () => {
               getValue={(selectedOption) =>
                 setFormData({
                   ...formData,
-                  name: selectedOption.value,
+                  vendor: selectedOption.value,
                 })
               }
             />
