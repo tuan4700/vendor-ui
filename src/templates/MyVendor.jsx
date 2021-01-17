@@ -125,20 +125,19 @@ const MyVendor = () => {
             </tbody>
           </table>
         </div>
-
-        <div className={`myVendor_exportPdf${openPdf ? " show" : ""}`}>
-          <div className="myVendor_exportPdf-modal ">
-            <div
-              className="myVendor_exportPdf-close"
-              onClick={() => setOpenPdf(false)}
-            >
-              X
-            </div>
-            <div className="myVendor_exportPdf-pdfViewer">
-              <PDFViewer>
-                <PdfDocument data={fakeVendor[selectedInfo]} vendor />
-              </PDFViewer>
-            </div>
+      </div>
+      <div className={`myVendor_exportPdf${openPdf ? " show" : ""}`}>
+        <div className="myVendor_exportPdf-modal ">
+          <div
+            className="myVendor_exportPdf-close"
+            onClick={() => setOpenPdf(false)}
+          >
+            X
+          </div>
+          <div className="myVendor_exportPdf-pdfViewer">
+            <PDFViewer>
+              <PdfDocument data={fakeVendor[selectedInfo]} vendor />
+            </PDFViewer>
           </div>
         </div>
       </div>
