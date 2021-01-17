@@ -43,6 +43,7 @@ const AddVendorForm = () => {
 
   const handleSubmit = () => {
     fakeVendor.push(formData);
+    alert("Add success!!");
   };
 
   const handleNewDate = (newDate, property) => {

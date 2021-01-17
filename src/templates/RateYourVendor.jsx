@@ -61,6 +61,7 @@ const RateYourVendor = () => {
       ratedBy: "Anh Tuan",
       averageRating: averateRating,
     });
+    alert("Add success!!");
   };
 
   const handleRatingSelect = (e) => {

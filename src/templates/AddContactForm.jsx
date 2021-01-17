@@ -50,6 +50,7 @@ const AddContractForm = () => {
 
   const handleSubmit = () => {
     fakeContract.push({ ...formData, type: selectedType });
+    alert("Add success!!");
   };
 
   const handleNewDate = (newDate, property) => {
