@@ -1,4 +1,13 @@
-const Input = ({ name, id, label, isRequired, placeholder, handleChange }) => {
+const Input = ({
+  name,
+  id,
+  label,
+  isRequired,
+  placeholder,
+  handleChange,
+  defaultValue,
+  value,
+}) => {
   return (
     <div className="input">
       <>
@@ -17,6 +26,8 @@ const Input = ({ name, id, label, isRequired, placeholder, handleChange }) => {
             id={id}
             placeholder={placeholder}
             onChange={handleChange}
+            defaultValue={defaultValue}
+            value={value}
           ></input>
         </div>
       </>
