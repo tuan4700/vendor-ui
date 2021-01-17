@@ -56,3 +56,41 @@ export const fakeContract = [
     type: "ohh",
   },
 ];
+
+export const fakeRecommendVendor = [
+  {
+    name: "Park",
+    type: "vendor",
+    totalSpend: 1000,
+    status: "active",
+    countryOfRegistration: "Vietnam",
+    companyRegistrationNumber: "84",
+    qualified: "good",
+    companyWebsite: "haha.com",
+    internalRepresentative: "unknown",
+    relationshipSince: "2020",
+    currentContact: "Myself",
+    mainContactPerson: "Myself",
+    officialEmail: "a@gmail.com",
+    secondaryEmail: "1@gmail.com",
+    mobileNumber: "123456789",
+  },
+
+  {
+    name: "Pleez",
+    type: "vendor",
+    totalSpend: 1000,
+    status: "active",
+    countryOfRegistration: "Vietnam",
+    companyRegistrationNumber: "84",
+    qualified: "pretty good",
+    companyWebsite: "haha.com",
+    internalRepresentative: "unknown",
+    relationshipSince: "2020",
+    currentContact: "Boo",
+    mainContactPerson: "Boom",
+    officialEmail: "b@gmail.com",
+    secondaryEmail: "2@gmail.com",
+    mobileNumber: "123456789",
+  },
+];

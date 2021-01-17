@@ -2,7 +2,7 @@ import { useState } from "react";
 import TitleBar from "../components/TitleBar";
 import VendorDrawer from "../components/VendorDrawer";
 import VendorMiniForm from "../components/VendorMiniForm";
-import { fakeVendor } from "../fakeData";
+import { fakeRecommendVendor, fakeVendor } from "../fakeData";
 import Input from "../components/Input";
 
 const RecommendVendor = () => {
@@ -20,7 +20,7 @@ const RecommendVendor = () => {
 
   const handleSearch = (e) => {
     setSearchTerm(
-      fakeVendor.filter((ele) => {
+      fakeRecommendVendor.filter((ele) => {
         return ele.name === e.target.value;
       })
     );
@@ -54,13 +54,15 @@ const RecommendVendor = () => {
                 vendor={ele}
                 key={index}
                 onClick={() => handleMiniFormClick(ele)}
+                handleAdd={() => fakeVendor.push(ele)}
               />
             ))
-          : fakeVendor.map((ele, index) => (
+          : fakeRecommendVendor.map((ele, index) => (
               <VendorMiniForm
                 vendor={ele}
                 key={index}
                 onClick={() => handleMiniFormClick(ele)}
+                handleAdd={() => fakeVendor.push(ele)}
               />
             ))}
       </div>

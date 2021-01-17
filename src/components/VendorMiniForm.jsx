@@ -1,6 +1,6 @@
 import Icon from "./Icon";
 
-const VendorMiniForm = ({ vendor, onClick }) => {
+const VendorMiniForm = ({ vendor, onClick, handleAdd }) => {
   return (
     <div className="vendorMiniForm" onClick={onClick}>
       <div className="vendorMiniForm_mainContent">
@@ -8,8 +8,19 @@ const VendorMiniForm = ({ vendor, onClick }) => {
           <div className="vendorMiniForm_mainContent-title">
             {(vendor && vendor.name) || ""}
           </div>
+          <div className="vendorMiniForm_mainContent-qualified">
+            {(vendor && vendor.qualified) || ""}
+          </div>
           <div className="vendorMiniForm_mainContent-action">
-            <Icon name="more" />
+            <div
+              className="vendorMiniForm_mainContent-action_plus"
+              onClick={handleAdd}
+            >
+              <Icon name="plus" />
+            </div>
+            <div className="vendorMiniForm_mainContent-action_more">
+              <Icon name="more" />
+            </div>
           </div>
         </div>
       </div>

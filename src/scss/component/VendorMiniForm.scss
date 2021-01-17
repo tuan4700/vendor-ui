@@ -18,6 +18,15 @@
       display: flex;
       justify-content: space-between;
     }
+    &-action {
+      display: flex;
+      justify-content: space-between;
+      min-width: rem(80);
+
+      &_plus {
+        cursor: pointer;
+      }
+    }
   }
   &_externalInfo {
     display: flex;

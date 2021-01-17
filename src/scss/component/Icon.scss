@@ -11,6 +11,9 @@
   &-more {
     @include loadIcon("../../assets/icons/more.png");
   }
+  &-plus {
+    @include loadIcon("../../assets/icons/plus.png");
+  }
   &-whiteCross {
     @include loadIcon("../../assets/icons/white-cross.png");
   }
