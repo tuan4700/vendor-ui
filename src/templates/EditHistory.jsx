@@ -4,43 +4,29 @@ import { fakeContract } from "../fakeData";
 import PdfDocument from "../components/PdfDocument";
 import { PDFViewer } from "@react-pdf/renderer";
 import Input from "../components/Input";
-import ContractDrawer from "../components/ContractDrawer";
 
-const MyContract = () => {
+const EditHistory = () => {
   const tableHeader = [
     "Select",
     "Contract Member Correct",
-    "Product(s)",
-    "Title",
     "Contract",
-    "Vendor",
-    "Type",
+    "Edit date",
+    "Edit Content",
   ];
 
   const [openPdf, setOpenPdf] = useState(false);
   const [selectedInfo, setSelectedInfo] = useState("0");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const [selectVendor, setSelectVendor] = useState(false);
+  const [searchTerm, setSearchTerm] = useState([]);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  const handleRowClick = (contract) => {
-    console.log("haha");
-    if (contract !== selectVendor) setSelectVendor(contract);
-    else setOpenDrawer((prev) => !prev);
-  };
-  const handleDrawerClose = () => {
-    setOpenDrawer(false);
-  };
-
   return (
-    <div className="myContract">
-      <div className="myContract_titleBar">
+    <div className="editHistory">
+      <div className="editHistory_titleBar">
         <TitleBar
-          title="My Contract"
+          title="Edit History"
           exportPdf={() => setOpenPdf(true)}
           search={
             <Input
@@ -52,30 +38,29 @@ const MyContract = () => {
         />
       </div>
 
-      <div className="myContract_contactTable">
-        <table className="myContract_contactTable-table">
+      <div className="editHistory_contactTable">
+        <table className="editHistory_contactTable-table">
           <thead>
-            <tr className="myContract_contactTable-headLine">
+            <tr className="editHistory_contactTable-headLine">
               {tableHeader.map((ele, index) => (
-                <td key={index} className="myContract_contactTable-headItem">
+                <td key={index} className="editHistory_contactTable-headItem">
                   {ele}
                 </td>
               ))}
             </tr>
           </thead>
-          <tbody className="myContract_contactTable-body">
+          <tbody className="editHistory_contactTable-body">
             {searchTerm !== ""
               ? fakeContract
                   .filter((ele) => ele.contractTitle.includes(searchTerm))
                   .map((ele, index) => (
                     <tr
                       key={index}
-                      className={`myContract_contactTable-row ${
+                      className={`editHistory_contactTable-row ${
                         index.toString() === selectedInfo ? "selected" : ""
                       }`}
-                      onClick={() => handleRowClick(ele)}
                     >
-                      <td className="myContract_contactTable-radio">
+                      <td className="editHistory_contactTable-radio">
                         <input
                           value={index}
                           id={`type_radio_${index}`}
@@ -85,35 +70,28 @@ const MyContract = () => {
                           onChange={(e) => setSelectedInfo(e.target.value)}
                         />
                       </td>
-                      <td className="myContract_contactTable-data">
+                      <td className="editHistory_contactTable-data">
                         {ele.contractMemberCorrect}
                       </td>
-                      <td className="myContract_contactTable-data">
-                        {ele.product}
-                      </td>
-                      <td className="myContract_contactTable-data">
-                        {ele.contractTitle}
-                      </td>
-                      <td className="myContract_contactTable-data">
+                      <td className="editHistory_contactTable-data">
                         {ele.contract}
                       </td>
-                      <td className="myContract_contactTable-data">
-                        {ele.contract}
+                      <td className="editHistory_contactTable-data">
+                        {ele.editDate}
                       </td>
-                      <td className="myContract_contactTable-data">
-                        {ele.type}
+                      <td className="editHistory_contactTable-data">
+                        {ele.editContent}
                       </td>
                     </tr>
                   ))
               : fakeContract.map((ele, index) => (
                   <tr
                     key={index}
-                    className={`myContract_contactTable-row ${
+                    className={`editHistory_contactTable-row ${
                       index.toString() === selectedInfo ? "selected" : ""
                     }`}
-                    onClick={() => handleRowClick(ele)}
                   >
-                    <td className="myContract_contactTable-radio">
+                    <td className="editHistory_contactTable-radio">
                       <input
                         value={index}
                         id={`type_radio_${index}`}
@@ -123,52 +101,41 @@ const MyContract = () => {
                         onChange={(e) => setSelectedInfo(e.target.value)}
                       />
                     </td>
-                    <td className="myContract_contactTable-data">
+                    <td className="editHistory_contactTable-data">
                       {ele.contractMemberCorrect}
                     </td>
-                    <td className="myContract_contactTable-data">
+                    <td className="editHistory_contactTable-data">
                       {ele.product}
                     </td>
-                    <td className="myContract_contactTable-data">
+                    <td className="editHistory_contactTable-data">
                       {ele.title}
                     </td>
-                    <td className="myContract_contactTable-data">
+                    <td className="editHistory_contactTable-data">
                       {ele.contract}
                     </td>
-                    <td className="myContract_contactTable-data">
-                      {ele.vendor}
-                    </td>
-                    <td className="myContract_contactTable-data">{ele.type}</td>
                   </tr>
                 ))}
           </tbody>
         </table>
       </div>
 
-      <div className={`myContract_exportPdf${openPdf ? " show" : ""}`}>
-        <div className="myContract_exportPdf-modal ">
+      <div className={`editHistory_exportPdf${openPdf ? " show" : ""}`}>
+        <div className="editHistory_exportPdf-modal ">
           <div
-            className="myContract_exportPdf-close"
+            className="editHistory_exportPdf-close"
             onClick={() => setOpenPdf(false)}
           >
             X
           </div>
-          <div className="myContract_exportPdf-pdfViewer">
+          <div className="editHistory_exportPdf-pdfViewer">
             <PDFViewer>
               <PdfDocument data={fakeContract[selectedInfo]} />
             </PDFViewer>
           </div>
         </div>
       </div>
-
-      <div className={`myContract_drawer ${openDrawer ? "open" : ""}`}>
-        <ContractDrawer
-          contract={selectVendor}
-          handleClose={handleDrawerClose}
-        />
-      </div>
     </div>
   );
 };
 
-export default MyContract;
+export default EditHistory;

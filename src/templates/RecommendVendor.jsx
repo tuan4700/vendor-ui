@@ -26,6 +26,11 @@ const RecommendVendor = () => {
     );
   };
 
+  const handleAddVendor = (ele) => {
+    fakeVendor.push(ele);
+    alert("Add success!!!");
+  };
+
   return (
     <div className="recommendVendor">
       <div className={`recommendVendor_drawer ${openDrawer ? "open" : ""}`}>
@@ -54,7 +59,7 @@ const RecommendVendor = () => {
                 vendor={ele}
                 key={index}
                 onClick={() => handleMiniFormClick(ele)}
-                handleAdd={() => fakeVendor.push(ele)}
+                handleAdd={() => handleAddVendor(ele)}
               />
             ))
           : fakeRecommendVendor.map((ele, index) => (
@@ -62,7 +67,7 @@ const RecommendVendor = () => {
                 vendor={ele}
                 key={index}
                 onClick={() => handleMiniFormClick(ele)}
-                handleAdd={() => fakeVendor.push(ele)}
+                handleAdd={() => handleAddVendor(ele)}
               />
             ))}
       </div>

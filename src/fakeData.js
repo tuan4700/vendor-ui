@@ -45,6 +45,8 @@ export const fakeContract = [
     contract: "huh",
     vendor: "me",
     type: "ohh",
+    editDate: "29/01/2020",
+    editContent: "contract",
   },
   {
     contractNumber: "4",
@@ -54,6 +56,8 @@ export const fakeContract = [
     contract: "huh",
     vendor: "me",
     type: "ohh",
+    editDate: "28/02/2020",
+    editContent: "contractMemberCorrect",
   },
 ];
 

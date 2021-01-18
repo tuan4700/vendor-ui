@@ -4,6 +4,7 @@ import { fakeVendor } from "../fakeData";
 import PdfDocument from "../components/PdfDocument";
 import { PDFViewer } from "@react-pdf/renderer";
 import Input from "../components/Input";
+import VendorDrawer from "../components/VendorDrawer";
 
 const MyVendor = () => {
   const tableHeader = [
@@ -18,6 +19,17 @@ const MyVendor = () => {
   const [openPdf, setOpenPdf] = useState(false);
   const [selectedInfo, setSelectedInfo] = useState("0");
   const [searchTerm, setSearchTerm] = useState("");
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [selectVendor, setSelectVendor] = useState(false);
+
+  const handleRowClick = (vendor) => {
+    console.log("haha");
+    if (vendor !== selectVendor) setSelectVendor(vendor);
+    else setOpenDrawer((prev) => !prev);
+  };
+  const handleDrawerClose = () => {
+    setOpenDrawer(false);
+  };
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -62,6 +74,7 @@ const MyVendor = () => {
                         className={`myVendor_contactTable-row ${
                           index.toString() === selectedInfo ? "selected" : ""
                         }`}
+                        onClick={() => handleRowClick(ele)}
                       >
                         <td className="myVendor_contactTable-radio">
                           <input
@@ -96,6 +109,7 @@ const MyVendor = () => {
                       className={`myVendor_contactTable-row ${
                         index.toString() === selectedInfo ? "selected" : ""
                       }`}
+                      onClick={() => handleRowClick(ele)}
                     >
                       <td className="myVendor_contactTable-radio">
                         <input
@@ -140,6 +154,10 @@ const MyVendor = () => {
             </PDFViewer>
           </div>
         </div>
+      </div>
+
+      <div className={`myVendor_drawer ${openDrawer ? "open" : ""}`}>
+        <VendorDrawer vendor={selectVendor} handleClose={handleDrawerClose} />
       </div>
     </div>
   );

@@ -46,6 +46,14 @@ const Drawer = ({ open, handleCloseDrawer }) => {
             onClick={handleCloseDrawer}
           >
             <Link
+              to="/vendor-recommend"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/vendor-recommend") ? "active" : ""
+              }`}
+            >
+              Recommend
+            </Link>
+            <Link
               to="/add-vendor-form"
               className={`drawer_accordion-navigate ${
                 handleCheckActive("/add-vendor-form") ? "active" : ""
@@ -68,14 +76,6 @@ const Drawer = ({ open, handleCloseDrawer }) => {
               }`}
             >
               Vendor Send Report
-            </Link>
-            <Link
-              to="/vendor-recommend"
-              className={`drawer_accordion-navigate ${
-                handleCheckActive("/vendor-recommend") ? "active" : ""
-              }`}
-            >
-              Recommend
             </Link>
           </div>
         </div>
@@ -100,7 +100,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/add-contact-form") ? "active" : ""
               }`}
             >
-              Add Contact
+              Add Contract
             </Link>
             <Link
               to="/my-contact"
@@ -108,9 +108,16 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/my-contact") ? "active" : ""
               }`}
             >
-              My Contact
+              My Contract
             </Link>
-            <div className="drawer_accordion-navigate">Edit History</div>
+            <Link
+              to="/edit-history"
+              className={`drawer_accordion-navigate ${
+                handleCheckActive("/edit-history") ? "active" : ""
+              }`}
+            >
+              Edit History
+            </Link>
           </div>
         </div>
         <div

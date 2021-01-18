@@ -1,6 +1,11 @@
 import MainLayout from "./components/MainLayout";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import routes from "./routes";
 
 function App() {
@@ -14,6 +19,7 @@ function App() {
                 {item.component}
               </Route>
             ))}
+            <Redirect exact from="/" to="vendor-recommend" />
           </Switch>
         </MainLayout>
       </Router>

@@ -5,6 +5,7 @@ import MyContact from "./templates/MyContact";
 import RateYourVendor from "./templates/RateYourVendor";
 import VendorReview from "./templates/VendorReview";
 import RecommendVendor from "./templates/RecommendVendor";
+import EditHistory from "./templates/EditHistory";
 
 const routes = [
   {
@@ -34,6 +35,10 @@ const routes = [
   {
     link: "/vendor-review",
     component: <VendorReview />,
+  },
+  {
+    link: "/edit-history",
+    component: <EditHistory />,
   },
 ];
 
