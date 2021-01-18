@@ -41,17 +41,18 @@ const PdfContent = ({ data, title }) => {
   return (
     <View>
       <View style={styles.title}>
-        <Text>{title}</Text>
+        <Text>{title || ""}</Text>
       </View>
-      {Object.keys(data).map((ele, index) => {
-        return (
-          <View key={index} style={styles.info}>
-            <Text>{handleCamelToCapital(ele)}</Text>
-            <View style={styles.dots}></View>
-            <Text>{data[ele]}</Text>
-          </View>
-        );
-      })}
+      {data &&
+        Object.keys(data).map((ele, index) => {
+          return (
+            <View key={index} style={styles.info}>
+              <Text>{handleCamelToCapital(ele)}</Text>
+              <View style={styles.dots}></View>
+              <Text>{data[ele]}</Text>
+            </View>
+          );
+        })}
     </View>
   );
 };

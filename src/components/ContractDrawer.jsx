@@ -34,16 +34,17 @@ const ContractDrawer = ({ contract, handleClose, handleDelete }) => {
 
       <div className="contractDrawer_section">Overview</div>
       <div className="contractDrawer_informationTable">
-        {Object.keys(contract).map((ele, index) => (
-          <div key={index} className="contractDrawer_informationTable-line">
-            <div className="contractDrawer_informationTable-title">
-              {handleCamelToCapital(ele)}
+        {contract &&
+          Object.keys(contract).map((ele, index) => (
+            <div key={index} className="contractDrawer_informationTable-line">
+              <div className="contractDrawer_informationTable-title">
+                {handleCamelToCapital(ele)}
+              </div>
+              <div className="contractDrawer_informationTable-value">
+                {contract[ele]}
+              </div>
             </div>
-            <div className="contractDrawer_informationTable-value">
-              {contract[ele]}
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

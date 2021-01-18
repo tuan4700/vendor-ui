@@ -17,7 +17,7 @@ const MyVendor = () => {
   ];
 
   const [openPdf, setOpenPdf] = useState(false);
-  const [selectedInfo, setSelectedInfo] = useState("0");
+  const [selectedInfo, setSelectedInfo] = useState("0" || null);
   const [searchTerm, setSearchTerm] = useState("");
   const [openDrawer, setOpenDrawer] = useState(false);
   const [selectVendor, setSelectVendor] = useState(false);
