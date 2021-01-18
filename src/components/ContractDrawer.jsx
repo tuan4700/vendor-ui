@@ -7,7 +7,7 @@ const handleCamelToCapital = (text) => {
   return finalResult;
 };
 
-const ContractDrawer = ({ contract, handleClose }) => {
+const ContractDrawer = ({ contract, handleClose, handleDelete }) => {
   return (
     <div className="contractDrawer">
       <div className="contractDrawer_actionBar">
@@ -15,12 +15,15 @@ const ContractDrawer = ({ contract, handleClose }) => {
           <Button variant="outlined">Archive</Button>
         </div>
         <div className="contractDrawer_actionBar-actionBtn contractDrawer_actionBar-edit">
-          <Link to="/add-contract-form">
+          <Link to="/add-contact-form">
             <Button variant="outlined primary">Edit</Button>
           </Link>
         </div>
-        <div className="contractDrawer_actionBar-actionBtn contractDrawer_actionBar-more">
-          <Button variant="outlined"> More</Button>
+        <div className="contractDrawer_actionBar-actionBtn contractDrawer_actionBar-delete">
+          <Button variant="outlined" handleClick={handleDelete}>
+            {" "}
+            Delete
+          </Button>
         </div>
         <div className="contractDrawer_actionBar-actionBtn contractDrawer_actionBar-close">
           <Button variant="outlined" handleClick={handleClose}>

@@ -50,6 +50,16 @@
       margin-top: rem(30);
     }
 
+    &-section {
+      @include fontBase(32);
+      font-weight: bold;
+
+      @include desktop-down {
+        @include fontBase(28);
+        margin-top: rem(20);
+      }
+    }
+
     &-radio {
       &_title {
         @include fontBase(24);

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
-const VendorDrawer = ({ vendor, handleClose }) => {
+const VendorDrawer = ({ vendor, handleClose, handleDelete }) => {
   const infoOverview = [
     { title: "Name", value: vendor.name },
     { title: "Type", value: vendor.type },
@@ -35,8 +35,10 @@ const VendorDrawer = ({ vendor, handleClose }) => {
             <Button variant="outlined primary">Edit</Button>
           </Link>
         </div>
-        <div className="vendorDrawer_actionBar-actionBtn vendorDrawer_actionBar-more">
-          <Button variant="outlined"> More</Button>
+        <div className="vendorDrawer_actionBar-actionBtn vendorDrawer_actionBar-delete">
+          <Button variant="outlined" handleClick={handleDelete}>
+            Delete
+          </Button>
         </div>
         <div className="vendorDrawer_actionBar-actionBtn vendorDrawer_actionBar-close">
           <Button variant="outlined" handleClick={handleClose}>

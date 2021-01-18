@@ -33,7 +33,7 @@ const TitleBar = (props) => {
           </Button>
         </div>
         <div className="titleBar_actions-btn titleBar_actions-add">
-          <Link to="/add-vendor-form">
+          <Link to={props.addLink}>
             <Button size="small" variant="primary">
               <Icon name="whiteCross" />
             </Button>

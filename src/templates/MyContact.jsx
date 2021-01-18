@@ -21,19 +21,27 @@ const MyContract = () => {
   const [selectedInfo, setSelectedInfo] = useState("0");
   const [searchTerm, setSearchTerm] = useState("");
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [selectVendor, setSelectVendor] = useState(false);
+  const [selectContract, setSelectContract] = useState(false);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
 
   const handleRowClick = (contract) => {
-    console.log("haha");
-    if (contract !== selectVendor) setSelectVendor(contract);
+    if (contract !== selectContract) setSelectContract(contract);
     else setOpenDrawer((prev) => !prev);
   };
   const handleDrawerClose = () => {
     setOpenDrawer(false);
+  };
+
+  const handleDelete = (vendor) => {
+    fakeContract.splice(
+      fakeContract.findIndex((i) => i === vendor),
+      1
+    );
+    setOpenDrawer(false);
+    setSelectContract([]);
   };
 
   return (
@@ -42,6 +50,7 @@ const MyContract = () => {
         <TitleBar
           title="My Contract"
           exportPdf={() => setOpenPdf(true)}
+          addLink="/add-contact-form"
           search={
             <Input
               id="contact-name-input"
@@ -98,7 +107,7 @@ const MyContract = () => {
                         {ele.contract}
                       </td>
                       <td className="myContract_contactTable-data">
-                        {ele.contract}
+                        {ele.vendor}
                       </td>
                       <td className="myContract_contactTable-data">
                         {ele.type}
@@ -163,8 +172,9 @@ const MyContract = () => {
 
       <div className={`myContract_drawer ${openDrawer ? "open" : ""}`}>
         <ContractDrawer
-          contract={selectVendor}
+          contract={selectContract}
           handleClose={handleDrawerClose}
+          handleDelete={() => handleDelete(selectContract)}
         />
       </div>
     </div>

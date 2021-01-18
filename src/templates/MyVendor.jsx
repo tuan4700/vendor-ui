@@ -23,7 +23,6 @@ const MyVendor = () => {
   const [selectVendor, setSelectVendor] = useState(false);
 
   const handleRowClick = (vendor) => {
-    console.log("haha");
     if (vendor !== selectVendor) setSelectVendor(vendor);
     else setOpenDrawer((prev) => !prev);
   };
@@ -35,7 +34,14 @@ const MyVendor = () => {
     setSearchTerm(e.target.value);
   };
 
-  console.log(searchTerm);
+  const handleDelete = (vendor) => {
+    fakeVendor.splice(
+      fakeVendor.findIndex((i) => i === vendor),
+      1
+    );
+    setOpenDrawer(false);
+    setSelectVendor([]);
+  };
 
   return (
     <div className="myVendor">
@@ -43,6 +49,7 @@ const MyVendor = () => {
         <TitleBar
           title="My Vendor"
           exportPdf={() => setOpenPdf(true)}
+          addLink="/add-vendor-form"
           search={
             <Input
               id="vendor-name-input"
@@ -157,7 +164,11 @@ const MyVendor = () => {
       </div>
 
       <div className={`myVendor_drawer ${openDrawer ? "open" : ""}`}>
-        <VendorDrawer vendor={selectVendor} handleClose={handleDrawerClose} />
+        <VendorDrawer
+          vendor={selectVendor}
+          handleClose={handleDrawerClose}
+          handleDelete={() => handleDelete(selectVendor)}
+        />
       </div>
     </div>
   );
