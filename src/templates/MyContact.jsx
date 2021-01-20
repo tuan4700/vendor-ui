@@ -18,7 +18,7 @@ const MyContract = () => {
   ];
 
   const [openPdf, setOpenPdf] = useState(false);
-  const [selectedInfo, setSelectedInfo] = useState("0");
+  const [selectedInfo, setSelectedInfo] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [openDrawer, setOpenDrawer] = useState(false);
   const [selectContract, setSelectContract] = useState(false);
@@ -43,6 +43,20 @@ const MyContract = () => {
     setOpenDrawer(false);
     setSelectContract([]);
   };
+
+  const handleCheckChange = (e) => {
+    const value = e.target.value;
+
+    setSelectedInfo(
+      selectedInfo.find((ele) => ele === value)
+        ? selectedInfo.filter((ele) => ele !== value)
+        : [...selectedInfo, value]
+    );
+  };
+
+  console.log(
+    fakeContract.filter((ele, index) => selectedInfo.includes(index.toString()))
+  );
 
   return (
     <div className="myContract">
@@ -80,18 +94,19 @@ const MyContract = () => {
                     <tr
                       key={index}
                       className={`myContract_contactTable-row ${
-                        index.toString() === selectedInfo ? "selected" : ""
+                        selectedInfo.includes(index.toString())
+                          ? "selected"
+                          : ""
                       }`}
                       onClick={() => handleRowClick(ele)}
                     >
                       <td className="myContract_contactTable-radio">
                         <input
-                          value={index}
-                          id={`type_radio_${index}`}
-                          checked={index.toString() === selectedInfo}
-                          name="type_radio"
-                          type="radio"
-                          onChange={(e) => setSelectedInfo(e.target.value)}
+                          value={index.toString()}
+                          id={`type_checkbox_${index}`}
+                          name="type_checkbox"
+                          type="checkbox"
+                          onChange={(e) => handleCheckChange(e)}
                         />
                       </td>
                       <td className="myContract_contactTable-data">
@@ -118,18 +133,17 @@ const MyContract = () => {
                   <tr
                     key={index}
                     className={`myContract_contactTable-row ${
-                      index.toString() === selectedInfo ? "selected" : ""
+                      selectedInfo.includes(index.toString()) ? "selected" : ""
                     }`}
                     onClick={() => handleRowClick(ele)}
                   >
                     <td className="myContract_contactTable-radio">
                       <input
-                        value={index}
-                        id={`type_radio_${index}`}
-                        checked={index.toString() === selectedInfo}
-                        name="type_radio"
-                        type="radio"
-                        onChange={(e) => setSelectedInfo(e.target.value)}
+                        value={index.toString()}
+                        id={`type_checkbox_${index}`}
+                        name="type_checkbox"
+                        type="checkbox"
+                        onChange={(e) => handleCheckChange(e)}
                       />
                     </td>
                     <td className="myContract_contactTable-data">
@@ -164,7 +178,11 @@ const MyContract = () => {
           </div>
           <div className="myContract_exportPdf-pdfViewer">
             <PDFViewer>
-              <PdfDocument data={fakeContract[selectedInfo]} />
+              <PdfDocument
+                arrayContract={fakeContract.filter((ele, index) =>
+                  selectedInfo.includes(index.toString())
+                )}
+              />
             </PDFViewer>
           </div>
         </div>

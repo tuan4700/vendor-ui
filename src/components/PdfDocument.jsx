@@ -30,6 +30,9 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     borderBottom: "1pt dotted black",
   },
+  mb30: {
+    marginBottom: 30,
+  },
 });
 const handleCamelToCapital = (text) => {
   var result = text.replace(/([A-Z])/g, " $1");
@@ -58,14 +61,24 @@ const PdfContent = ({ data, title }) => {
 };
 
 // Create Document Component
-const PdfDocument = ({ data, vendor }) => {
+const PdfDocument = ({ data, vendor, arrayContract }) => {
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
-        <PdfContent
-          data={data}
-          title={vendor ? "Vendor Information" : "Contract Information"}
-        />
+      <Page size="A4" style={styles.page} wrap>
+        {data && (
+          <PdfContent
+            data={data}
+            title={vendor ? "Vendor Information" : "Contract Information"}
+          />
+        )}
+
+        {arrayContract &&
+          arrayContract.map((ele, index) => (
+            <View key={index}>
+              <View style={styles.mb30} />
+              <PdfContent data={ele} title={"Contract Information"} />
+            </View>
+          ))}
       </Page>
     </Document>
   );
