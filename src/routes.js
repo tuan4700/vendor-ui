@@ -6,6 +6,7 @@ import RateYourVendor from "./templates/RateYourVendor";
 import VendorReview from "./templates/VendorReview";
 import RecommendVendor from "./templates/RecommendVendor";
 import EditHistory from "./templates/EditHistory";
+import VendorSendReport from "./templates/VendorSendReport";
 
 const routes = [
   {
@@ -39,6 +40,10 @@ const routes = [
   {
     link: "/edit-history",
     component: <EditHistory />,
+  },
+  {
+    link: "/vendor-send-report",
+    component: <VendorSendReport />,
   },
 ];
 

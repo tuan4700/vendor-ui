@@ -38,5 +38,6 @@
   &_inputContainer {
     max-width: rem(250);
     flex-shrink: 0;
+    transition: $normal-transition;
   }
 }

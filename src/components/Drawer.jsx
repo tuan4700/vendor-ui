@@ -39,7 +39,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
             className="drawer_accordion-title "
             onClick={() => handleAccordion("vendor")}
           >
-            Vendors
+            <Icon name="vendor" /> Vendors
           </div>
           <div
             className="drawer_accordion-childWrapper "
@@ -51,7 +51,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/vendor-recommend") ? "active" : ""
               }`}
             >
-              Recommend
+              <Icon name="vendorRecommend" /> Recommend
             </Link>
             <Link
               to="/add-vendor-form"
@@ -59,7 +59,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/add-vendor-form") ? "active" : ""
               }`}
             >
-              Add Vendor
+              <Icon name="vendorAdd" /> Add Vendor
             </Link>
             <Link
               to="/my-vendor"
@@ -67,7 +67,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/my-vendor") ? "active" : ""
               }`}
             >
-              My Vendor
+              <Icon name="myVendor" /> My Vendor
             </Link>
             <Link
               to="/vendor-send-report"
@@ -75,6 +75,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/vendor-send-report") ? "active" : ""
               }`}
             >
+              <Icon name="vendorReport" />
               Vendor Send Report
             </Link>
           </div>
@@ -88,7 +89,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
             className="drawer_accordion-title "
             onClick={() => handleAccordion("contract")}
           >
-            Contracts
+            <Icon name="contract" /> Contracts
           </div>
           <div
             className="drawer_accordion-childWrapper "
@@ -100,7 +101,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/add-contact-form") ? "active" : ""
               }`}
             >
-              Add Contract
+              <Icon name="contractAdd" /> Add Contract
             </Link>
             <Link
               to="/my-contact"
@@ -108,7 +109,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/my-contact") ? "active" : ""
               }`}
             >
-              My Contract
+              <Icon name="myContract" /> My Contract
             </Link>
             <Link
               to="/edit-history"
@@ -116,7 +117,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/edit-history") ? "active" : ""
               }`}
             >
-              Edit History
+              <Icon name="editHistory" /> Edit History
             </Link>
           </div>
         </div>
@@ -129,7 +130,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
             className="drawer_accordion-title"
             onClick={() => handleAccordion("rating")}
           >
-            Vendor Rating
+            <Icon name="vendorRating" /> Vendor Rating
           </div>
           <div
             className="drawer_accordion-childWrapper "
@@ -141,7 +142,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/rate-your-vendor") ? "active" : ""
               }`}
             >
-              Rate Your Vendor
+              <Icon name="rateVendor" /> Rate Your Vendor
             </Link>
             <Link
               to="/vendor-review"
@@ -149,7 +150,7 @@ const Drawer = ({ open, handleCloseDrawer }) => {
                 handleCheckActive("/vendor-review") ? "active" : ""
               }`}
             >
-              Vendor Review
+              <Icon name="vendorReview" /> Vendor Review
             </Link>
           </div>
         </div>

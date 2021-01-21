@@ -27,6 +27,23 @@
     &-headItem {
       white-space: nowrap;
       padding: rem(10);
+
+      &:first-child {
+        display: flex;
+        align-items: center;
+
+        &::after {
+          content: "";
+          background-image: url("../../assets/icons/eye.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          height: 100%;
+          display: block;
+          width: rem(24);
+          height: rem(24);
+          margin-left: rem(10);
+        }
+      }
     }
     &-body {
       min-height: rem(50);

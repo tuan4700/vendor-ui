@@ -68,11 +68,17 @@
     }
 
     &-title {
-      @include fontBase(32, $snow);
+      @include fontBase(30, $snow);
       cursor: pointer;
       transition: $normal-transition;
       position: relative;
       padding: rem(10);
+      display: flex;
+      align-items: center;
+
+      div {
+        margin-right: rem(10);
+      }
 
       @include max-desktop-down {
         @include fontBase(28, $snow);
@@ -110,6 +116,10 @@
       align-items: center;
       color: $darkGray;
       padding: rem(10) 0 rem(10) rem(10);
+
+      div {
+        margin-right: rem(10);
+      }
 
       &:hover {
         background-color: rgba($color: $platinum, $alpha: 0.1);
