@@ -2,7 +2,6 @@ import { useState } from "react";
 import TitleBar from "../components/TitleBar";
 import { fakeVendor } from "../fakeData";
 import PdfDocument from "../components/PdfDocument";
-import { PDFViewer } from "@react-pdf/renderer";
 import Input from "../components/Input";
 import VendorDrawer from "../components/VendorDrawer";
 
@@ -17,7 +16,7 @@ const MyVendor = () => {
   ];
 
   const [openPdf, setOpenPdf] = useState(false);
-  const [selectedInfo, setSelectedInfo] = useState("0" || null);
+  const [selectedInfo, setSelectedInfo] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [openDrawer, setOpenDrawer] = useState(false);
   const [selectVendor, setSelectVendor] = useState(false);
@@ -41,6 +40,16 @@ const MyVendor = () => {
     );
     setOpenDrawer(false);
     setSelectVendor([]);
+  };
+
+  const handleCheckChange = (e) => {
+    const value = e.target.value;
+
+    setSelectedInfo(
+      selectedInfo.find((ele) => ele === value)
+        ? selectedInfo.filter((ele) => ele !== value)
+        : [...selectedInfo, value]
+    );
   };
 
   return (
@@ -85,12 +94,11 @@ const MyVendor = () => {
                       >
                         <td className="myVendor_contactTable-radio">
                           <input
-                            value={index}
-                            id={`type_radio_${index}`}
-                            checked={index.toString() === selectedInfo}
-                            name="type_radio"
-                            type="radio"
-                            onChange={(e) => setSelectedInfo(e.target.value)}
+                            value={index.toString()}
+                            id={`type_checkbox_${index}`}
+                            name="type_checkbox"
+                            type="checkbox"
+                            onChange={(e) => handleCheckChange(e)}
                           />
                         </td>
                         <td className="myVendor_contactTable-data">
@@ -120,12 +128,11 @@ const MyVendor = () => {
                     >
                       <td className="myVendor_contactTable-radio">
                         <input
-                          value={index}
-                          id={`type_radio_${index}`}
-                          checked={index.toString() === selectedInfo}
-                          name="type_radio"
-                          type="radio"
-                          onChange={(e) => setSelectedInfo(e.target.value)}
+                          value={index.toString()}
+                          id={`type_checkbox_${index}`}
+                          name="type_checkbox"
+                          type="checkbox"
+                          onChange={(e) => handleCheckChange(e)}
                         />
                       </td>
                       <td className="myVendor_contactTable-data">{ele.name}</td>
@@ -156,9 +163,12 @@ const MyVendor = () => {
             X
           </div>
           <div className="myVendor_exportPdf-pdfViewer">
-            <PDFViewer>
-              <PdfDocument data={fakeVendor[selectedInfo]} vendor />
-            </PDFViewer>
+            <PdfDocument
+              vendor
+              arrayContract={fakeVendor.filter((ele, index) =>
+                selectedInfo.includes(index.toString())
+              )}
+            />
           </div>
         </div>
       </div>

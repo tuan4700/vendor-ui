@@ -1,10 +1,21 @@
 import React from "react";
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import {
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  PDFViewer,
+} from "@react-pdf/renderer";
 
 // Create styles
 const styles = StyleSheet.create({
+  viewer: {
+    "document-container": {
+      height: "auto",
+    },
+  },
   page: {
-    backgroundColor: "white",
     padding: 16,
   },
   title: {
@@ -61,26 +72,24 @@ const PdfContent = ({ data, title }) => {
 };
 
 // Create Document Component
-const PdfDocument = ({ data, vendor, arrayContract }) => {
+const PdfDocument = ({ vendor, arrayContract }) => {
   return (
-    <Document>
-      <Page size="A4" style={styles.page} wrap>
-        {data && (
-          <PdfContent
-            data={data}
-            title={vendor ? "Vendor Information" : "Contract Information"}
-          />
-        )}
-
-        {arrayContract &&
-          arrayContract.map((ele, index) => (
-            <View key={index}>
-              <View style={styles.mb30} />
-              <PdfContent data={ele} title={"Contract Information"} />
-            </View>
-          ))}
-      </Page>
-    </Document>
+    <PDFViewer width="100%" height="100%" style={styles.viewer}>
+      <Document>
+        <Page style={styles.page} object-fit="cover" size="A4" wrap>
+          {arrayContract &&
+            arrayContract.map((ele, index) => (
+              <View key={index}>
+                <View style={styles.mb30} />
+                <PdfContent
+                  data={ele}
+                  title={vendor ? "Vendor Information" : "Contract Information"}
+                />
+              </View>
+            ))}
+        </Page>
+      </Document>
+    </PDFViewer>
   );
 };
 

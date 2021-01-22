@@ -2,7 +2,6 @@ import { useState } from "react";
 import TitleBar from "../components/TitleBar";
 import { fakeContract } from "../fakeData";
 import PdfDocument from "../components/PdfDocument";
-import { PDFViewer } from "@react-pdf/renderer";
 import Input from "../components/Input";
 import ContractDrawer from "../components/ContractDrawer";
 
@@ -54,9 +53,7 @@ const MyContract = () => {
     );
   };
 
-  console.log(
-    fakeContract.filter((ele, index) => selectedInfo.includes(index.toString()))
-  );
+  console.log(selectedInfo);
 
   return (
     <div className="myContract">
@@ -177,13 +174,11 @@ const MyContract = () => {
             X
           </div>
           <div className="myContract_exportPdf-pdfViewer">
-            <PDFViewer>
-              <PdfDocument
-                arrayContract={fakeContract.filter((ele, index) =>
-                  selectedInfo.includes(index.toString())
-                )}
-              />
-            </PDFViewer>
+            <PdfDocument
+              arrayContract={fakeContract.filter((ele, index) =>
+                selectedInfo.includes(index.toString())
+              )}
+            />
           </div>
         </div>
       </div>

@@ -63,6 +63,9 @@
         background-color: $ruddyPink03;
       }
     }
+    &-radio {
+      text-align: center;
+    }
     &-radio,
     &-data {
       padding: rem(10);
@@ -94,8 +97,7 @@
       top: rem(10);
       cursor: pointer;
     }
-    &-pdfViewer,
-    iframe {
+    &-pdfViewer {
       width: 100%;
       height: 100%;
     }
